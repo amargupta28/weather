@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from '../service/http.service'
 
 @Component({
   selector: 'app-weather',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
   city=""
-  constructor() { }
+  constructor(private apiService:HttpService) { }
 
 
   ngOnInit() {
@@ -17,6 +18,9 @@ export class WeatherComponent implements OnInit {
   submit() {
     console.log("HI",this.city)
 
+    this.apiService.geturl('current',this.city).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }

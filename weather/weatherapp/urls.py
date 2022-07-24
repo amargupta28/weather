@@ -4,7 +4,7 @@ from weatherapp import views
 
 
 urlpatterns = [
-    path('current/',views.CurrentWeather.as_view()),
+    path('current',views.CurrentWeather.as_view()),
     path('historical/',views.HistoricalWeather.as_view())
 
 ]

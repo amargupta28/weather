@@ -1,0 +1,3 @@
+[default]
+api_key=54627ad64abf10beb141f009bd48534a
+url = http://api.openweathermap.org/data/2.5/

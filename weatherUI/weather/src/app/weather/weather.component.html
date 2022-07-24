@@ -1,1 +1,8 @@
 <p>weather works!</p>
+<label for="cars">Choose a City:</label>
+<select id="cars" name="cars" [(ngModel)]="city">
+  <option value=""></option>
+  <option value="chicago">Chicago</option>
+</select>
+
+<button (click)="submit()"> Submit</button>

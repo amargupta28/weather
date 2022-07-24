@@ -16,7 +16,6 @@ configur.sections()
 key= configur.get('default','api_key')
 url=configur.get('default','url')
 
-
 # Create your views here.
 class CurrentWeather(View):
 

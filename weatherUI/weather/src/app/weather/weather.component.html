@@ -17,11 +17,17 @@
       <th>City</th>
       <th>latitude</th>
       <th>Longitude</th>
+      <th>Weather</th>
+      <th>Description</th>
+      <th>Icon </th>
     </tr>
     <tr>
       <td>{{tempData.name}}</td>
       <td>{{tempData.coord.lat}}</td>
       <td>{{tempData.coord.lon}}</td>
+      <td>{{tempData.weather[0].main}}</td>
+      <td>{{tempData.weather[0].description}}</td>
+      <td><img src='{{"http://openweathermap.org/img/w/"+tempData.weather[0].icon+".png"}}'></td>
     </tr>
   </table>
 <br>

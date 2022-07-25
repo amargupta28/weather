@@ -1,4 +1,4 @@
-<p>weather works!</p>
+
 <label for="cars">Choose a City:</label>
 <select id="cars" name="cars" [(ngModel)]="city">
   <option value=""></option>
@@ -8,4 +8,62 @@
 <button (click)="submit()"> Submit</button>
 
 
-<img src="http://openweathermap.org/img/w/[Icon_ID].png">
+<!-- <img src="http://openweathermap.org/img/w/[Icon_ID].png"> -->
+<br><br>
+<div *ngIf="data">
+  <h4>Current Data:</h4>
+  <table>
+    <tr>
+      <th>City</th>
+      <th>latitude</th>
+      <th>Longitude</th>
+    </tr>
+    <tr>
+      <td>{{tempData.name}}</td>
+      <td>{{tempData.coord.lat}}</td>
+      <td>{{tempData.coord.lon}}</td>
+    </tr>
+  </table>
+<br>
+  <button (click)="historical()">Want Historical Data ??</button>
+</div>
+
+<br>
+<div *ngIf="hisdata">
+  <h4>Historical Data:</h4>
+  <table>
+    <tr>
+      <th>DT</th>
+      <th>Temperature</th>
+      <th>Feels like</th>
+      <th>Pressure</th>
+      <th>Humidity</th>
+      <th>Dew Point</th>
+      <th>UVI</th>
+      <th>Clouds</th>
+      <th>Visibility</th>
+      <th>wind Speed</th>
+      <th>Wind Deg</th>
+      <th>Weather</th>
+      <th>Description</th>
+      <th>Icon </th>
+    </tr>
+    <tr *ngFor="let item of hisTempData.hourly">
+      <td>{{item.dt}}</td>
+      <td>{{item.temp}}</td>
+      <td>{{item.feels_like}}</td>
+      <td>{{item.pressure}}</td>
+      <td>{{item.humidity}}</td>
+      <td>{{item.dew_point}}</td>
+      <td>{{item.uvi}}</td>
+      <td>{{item.clouds}}</td>
+      <td>{{item.visibility}}</td>
+      <td>{{item.wind_speed}}</td>
+      <td>{{item.wind_deg}}</td>
+      <td>{{item.weather[0].main}}</td>
+      <td>{{item.weather[0].description}}</td>
+      <td> <img src='{{"http://openweathermap.org/img/w/"+item.weather[0].icon+".png"}}'> </td>
+
+    </tr>
+  </table>
+</div>

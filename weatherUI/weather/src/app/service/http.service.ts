@@ -29,6 +29,17 @@ baseurl=""
     return this.http.get(`${this.baseurl+url}`,{headers:headers,params:params}).pipe();
   }
 
+  gethistoryurl(url,lat,lon,dt) {
+    console.log(this.baseurl+url)
+    let params = new HttpParams().set("lat",lat).set("lon",lon).set("dt",dt)
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'});
+    return this.http.get(`${this.baseurl+url}`,{headers:headers,params:params}).pipe();
+  }
+
     // Handle Errors
     error(error: HttpErrorResponse) {
       let errorMessage = '';

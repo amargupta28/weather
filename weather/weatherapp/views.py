@@ -34,6 +34,7 @@ class HistoricalWeather(View):
     def get(self,req):
         lat= req.GET.get("lat")
         lon= req.GET.get("lon")
+        dt=req.GET.get("dt")
         historicalData = requests.get(url+"onecall/timemachine?lat="+lat+"&lon="+lon+"&dt="+dt+"&appid="+key)
         print(historicalData.json())
         response_data = historicalData.json()

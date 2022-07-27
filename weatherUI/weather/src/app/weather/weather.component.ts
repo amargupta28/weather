@@ -22,12 +22,13 @@ export class WeatherComponent implements OnInit {
   }
 
   submit() {
-
-
+    this.tempData=[]
+    this.data=false
+    this.hisdata=false
     this.apiService.geturl('current',this.city).subscribe((response) => {
-
-        this.data= true
-        this.tempData = response;
+      
+      this.data= true
+      this.tempData = response;
         console.log(response);
    
     });
@@ -36,6 +37,8 @@ export class WeatherComponent implements OnInit {
 
   historical() {
 
+    this.hisTempData=[]
+    this.hisdata=false
     this.apiService.gethistoryurl('historical',this.tempData["coord"]["lat"],this.tempData["coord"]["lon"],this.tempData["dt"]).subscribe((response) => {
 
       this.hisdata= true
